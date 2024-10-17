@@ -65,7 +65,7 @@ html, body {
 div#location-zoom {
   position: fixed; /* 固定位置 */
   top: 20px; /* 距离顶部的距离 */
-  left: 20px; /* 距离left侧的距离 */
+  left: 40px; /* 距离left侧的距离 */
   width: auto; /* 宽度 */
   padding: 5px; /* 内边距 */
   background-color: rgb(240, 248, 255, 0.5); /* 背景颜色 */
