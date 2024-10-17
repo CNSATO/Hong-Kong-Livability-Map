@@ -1,5 +1,6 @@
 const btnhide = document.getElementById('closeBtn');
 const nav = document.getElementById("nav");
+const locationZoom = document.getElementById('location-zoom');
 nav.style.display = 'block';
 
 btnhide.addEventListener('click', function () {
@@ -12,6 +13,7 @@ btnhide.addEventListener('click', function () {
         btnhide.style.position = 'relative'; // 使按钮在导航栏内部
         btnhide.style.top = '0px'; // 设置按钮的顶部位置
         btnhide.style.right = '0px'; // 设置按钮的右侧位置
+        adjustLocationZoomPosition();
     } else {
         // 如果导航栏可见，则逐渐隐藏并更新按钮文本
         var opacity = 1; // 初始不透明度
@@ -28,6 +30,7 @@ btnhide.addEventListener('click', function () {
                 btnhide.textContent = 'Display Menu'; // 更新按钮文本为“显示”
                 btnhide.style.top = '20px'; // 设置按钮的顶部位置
                 btnhide.style.right = '20px'; // 设置按钮的右侧位置
+                adjustLocationZoomPosition();
             } else {
                 opacity -= 0.1; // 每次减少不透明度
                 nav.style.opacity = opacity; // 更新元素不透明度
@@ -36,3 +39,41 @@ btnhide.addEventListener('click', function () {
     }
 });
 
+function adjustLocationZoomPosition() {
+    const nav = document.getElementById('nav');
+    const locationZoom = document.getElementById('location-zoom');
+    console.log("zoom panel adjusted");
+    // 检查窗口宽度是否小于 800px
+    if (window.innerWidth < 800) {
+        // 获取 #nav 的高度和位置
+        const navRect = nav.getBoundingClientRect();
+        const navBottom = navRect.bottom; // 获取 #nav 底部位置
+
+        // 设置 #location-zoom 的位置在 #nav 下面
+        locationZoom.style.position = 'absolute';
+        locationZoom.style.top = `${navBottom + 20}px`; // 设置在 #nav 下方 20px
+        locationZoom.style.left = "auto";
+        locationZoom.style.right = '20px';
+        locationZoom.style.width = '400px';
+    } else {
+        // 恢复原来的位置
+        locationZoom.style.position = 'fixed';
+        locationZoom.style.top = '20px';
+        locationZoom.style.left = '20px';
+        locationZoom.style.right = '';
+        locationZoom.style.width = '400x';
+    }
+    //Check if the menu (nav) is hidden
+    if (nav.style.visibility === "hidden") {
+        locationZoom.style.top = `60px`; // 设置在 #nav 下方 20px
+        if (window.innerWidth < 500) {
+            locationZoom.style.top = `60px`; // 设置在 #nav 下方 20px
+        }
+    }
+}
+
+// 在窗口大小变化时调整位置
+window.addEventListener('resize', adjustLocationZoomPosition);
+
+// 页面加载时也执行一次
+window.addEventListener('load', adjustLocationZoomPosition);
