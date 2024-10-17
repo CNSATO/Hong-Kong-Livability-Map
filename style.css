@@ -15,7 +15,7 @@ html, body {
   position: fixed; /* 固定位置 */
   top: 20px; /* 距离顶部的距离 */
   right: 20px; /* 距离右侧的距离 */
-  width: 350px; /* 宽度 */
+  width: auto; /* 宽度 350px*/
   padding: 15px; /* 内边距 */
   background-color: rgb(240, 248, 255, 0.75); /* 背景颜色 */
   border: 1px solid #ccc; /* 边框 */
@@ -52,4 +52,16 @@ html, body {
 
 .content {
   margin: 100px; /* 页面内容的外边距，避免被介绍栏覆盖 */
+}
+
+div#location-zoom {
+  position: fixed; /* 固定位置 */
+  top: 20px; /* 距离顶部的距离 */
+  left: 20px; /* 距离右侧的距离 */
+  width: auto; /* 宽度 */
+  padding: 5px; /* 内边距 */
+  background-color: rgb(240, 248, 255, 0.5); /* 背景颜色 */
+  border: 0.8px solid #ccc; /* 边框 */
+  box-shadow: 0 1.8px 8px rgba(0, 0, 0, 0.1); /* 阴影 */
+  z-index: 999; /* 确保在其他元素上方 */
 }

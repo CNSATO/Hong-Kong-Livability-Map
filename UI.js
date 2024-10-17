@@ -8,10 +8,10 @@ btnhide.addEventListener('click', function () {
         // nav.style.display = 'block';
         nav.style.visibility = "visible";
         nav.style.opacity = 1; // 重置不透明度
-        btnhide.textContent = 'Hide'; // 更新按钮文本为“关闭”
+        btnhide.textContent = 'Hide Menu'; // 更新按钮文本为“关闭”
         btnhide.style.position = 'relative'; // 使按钮在导航栏内部
         btnhide.style.top = '0px'; // 设置按钮的顶部位置
-        btnhide.style.right = '0px'; // 设置按钮的右侧位置        
+        btnhide.style.right = '0px'; // 设置按钮的右侧位置
     } else {
         // 如果导航栏可见，则逐渐隐藏并更新按钮文本
         var opacity = 1; // 初始不透明度
@@ -33,7 +33,6 @@ btnhide.addEventListener('click', function () {
                 nav.style.opacity = opacity; // 更新元素不透明度
             }
         }, 10); // 每10毫秒执行一次
-
-
     }
 });
+
