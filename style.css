@@ -17,9 +17,9 @@ html, body {
   right: 20px; /* 距离右侧的距离 */
   width: 350px; /* 宽度 */
   padding: 15px; /* 内边距 */
-  background-color: rgb(240, 248, 255); /* 背景颜色 */
+  background-color: rgb(240, 248, 255, 0.75); /* 背景颜色 */
   border: 1px solid #ccc; /* 边框 */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 阴影 */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4); /* 阴影 */
   z-index: 1000; /* 确保在其他元素上方 */
 }
 
@@ -27,14 +27,23 @@ html, body {
   margin: 0 0 10px; /* 段落外边距 */
 }
 
+#nav p#title-nav {
+  font-size: 30px;
+  font-family:'Times New Roman', Times, serif ;
+}
 
-#nav button {
+#nav #button-area {
+  padding: 10px 0 0 0;
+}
+
+#nav #button-area button {
   background-color: #007bff; /* 按钮背景颜色 */
   color: white; /* 按钮文字颜色 */
   border: none; /* 去掉边框 */
   padding: 5px 10px; /* 按钮内边距 */
   cursor: pointer; /* 鼠标悬停样式 */
   position: relative; /* 初始状态相对导航栏 */
+  display: initial;
 }
 
 #nav button:hover {
