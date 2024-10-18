@@ -38,9 +38,9 @@ function adjustLocationZoomPosition() {
         // if (window.innerWidth < 500) {
         //     locationZoom.style.top = `60px`; // 设置在 #nav 下方 20px
         // }
-        // if (window.innerWidth >= 873) {
-        //     locationZoom.style.top = `20px`
-        // }
+        if (window.innerWidth >= 873) {
+            locationZoom.style.top = `20px`
+        }
     }
 }
 
