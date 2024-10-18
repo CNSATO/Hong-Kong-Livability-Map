@@ -50,6 +50,18 @@ const map = new Map({
   }),
 });
 
+function pointerLocationWindowFade(event) {
+  var lz = document.getElementById("location-zoom")
+  lz.style.opacity = 1;
+
+  let end = setInterval(function () {
+    lz.style.opacity = lz.style.opacity - 0.01;
+  }, 20);
+  for (let i = 1; i < end; i++) {
+    clearInterval(i);
+  }
+}
+
 // map.addLayer(layer);
 
 map.on('pointermove', function (event) {
@@ -61,16 +73,7 @@ map.on('pointermove', function (event) {
 
   // 可以在此处执行任何需要的操作，例如在控制台输出坐标
   document.getElementById("location").innerHTML = `${mouseCoordinates[0].toFixed(4)}°E, ${mouseCoordinates[1].toFixed(4)}°N`;
-  var lz = document.getElementById("location-zoom")
-  lz.style.opacity = 1;
-
-  let end = setInterval(function () {
-    lz.style.opacity = lz.style.opacity - 0.01;
-  }, 20);
-  for (let i = 1; i < end; i++) {
-    clearInterval(i);
-  }
-
+  pointerLocationWindowFade(event)
 });
 
 var currentZoom = 11;
@@ -84,4 +87,5 @@ map.on('moveend', function (event) {
     // 更新当前的zoom等级
     currentZoom = newZoom;
   }
+  pointerLocationWindowFade(event)
 });

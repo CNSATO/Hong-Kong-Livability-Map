@@ -4,6 +4,47 @@ const locationZoom = document.getElementById('location-zoom');
 nav.style.display = 'block';
 
 btnhide.addEventListener('click', function () {
+    navMenuFading();
+});
+
+function adjustLocationZoomPosition() {
+    const nav = document.getElementById('nav');
+    const locationZoom = document.getElementById('location-zoom');
+    console.log("zoom panel adjusted");
+    // 检查窗口宽度是否小于 800px
+    if (window.innerWidth < 873) {
+        // 获取 #nav 的高度和位置
+        const navRect = nav.getBoundingClientRect();
+        const navBottom = navRect.bottom; // 获取 #nav 底部位置
+
+        // 设置 #location-zoom 的位置在 #nav 下面
+        locationZoom.style.position = 'absolute';
+        locationZoom.style.top = `${navBottom + 20}px`; // 设置在 #nav 下方 20px
+        locationZoom.style.left = "auto";
+        locationZoom.style.right = '20px';
+        locationZoom.style.width = 'auto';
+    } else {
+        // 恢复原来的位置
+        locationZoom.style.position = 'fixed';
+        locationZoom.style.top = '20px';
+        locationZoom.style.left = '40px';
+        locationZoom.style.right = '';
+        locationZoom.style.width = 'auto';
+    }
+    //Check if the menu (nav) is hidden
+    if (nav.style.visibility === "hidden") {
+        locationZoom.style.top = `60px`; // 设置在 #nav 下方 20px
+        // if (window.innerWidth < 500) {
+        //     locationZoom.style.top = `60px`; // 设置在 #nav 下方 20px
+        // }
+        // if (window.innerWidth >= 873) {
+        //     locationZoom.style.top = `20px`
+        // }
+    }
+}
+
+// Hide Navigation Window
+function navMenuFading() {
     if (nav.style.visibility === "hidden" || nav.style.display === '') {
         // 如果导航栏已隐藏，重新显示并更新按钮文本
         // nav.style.display = 'block';
@@ -36,39 +77,6 @@ btnhide.addEventListener('click', function () {
                 nav.style.opacity = opacity; // 更新元素不透明度
             }
         }, 10); // 每10毫秒执行一次
-    }
-});
-
-function adjustLocationZoomPosition() {
-    const nav = document.getElementById('nav');
-    const locationZoom = document.getElementById('location-zoom');
-    console.log("zoom panel adjusted");
-    // 检查窗口宽度是否小于 800px
-    if (window.innerWidth < 873) {
-        // 获取 #nav 的高度和位置
-        const navRect = nav.getBoundingClientRect();
-        const navBottom = navRect.bottom; // 获取 #nav 底部位置
-
-        // 设置 #location-zoom 的位置在 #nav 下面
-        locationZoom.style.position = 'absolute';
-        locationZoom.style.top = `${navBottom + 20}px`; // 设置在 #nav 下方 20px
-        locationZoom.style.left = "auto";
-        locationZoom.style.right = '20px';
-        locationZoom.style.width = 'auto';
-    } else {
-        // 恢复原来的位置
-        locationZoom.style.position = 'fixed';
-        locationZoom.style.top = '20px';
-        locationZoom.style.left = '40px';
-        locationZoom.style.right = '';
-        locationZoom.style.width = 'auto';
-    }
-    //Check if the menu (nav) is hidden
-    if (nav.style.visibility === "hidden") {
-        locationZoom.style.top = `60px`; // 设置在 #nav 下方 20px
-        if (window.innerWidth < 500) {
-            locationZoom.style.top = `60px`; // 设置在 #nav 下方 20px
-        }
     }
 }
 

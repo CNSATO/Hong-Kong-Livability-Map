@@ -9,9 +9,12 @@
 </head>
 
 <body>
-  <div id = "location-zoom"> Pointer Coordinate: <span id="location">114.1864°E, 22.3701°N</span>; Zoom Level: <span id="zoom">11</span></div>
+  <div id="location-zoom"> Pointer Coordinate: <span id="location">114.1864°E, 22.3701°N</span>; Zoom Level: <span
+      id="zoom">11</span></div>
   <div id="legend">
     <p id="title-legend">Legend</p>
+    <div id="legend-items">There is no layer now. You can add layers through "More Functions" button on the navigation
+      menu.</div>
   </div>
   <div id="nav">
     <p id="title-nav">Thanks for visiting Hong Kong Livability Map</p>
@@ -21,12 +24,31 @@
     <div id="button-area">
       <button id="closeBtn">Hide Menu</button>
       <button id="legendsBtn">Hide Legends</button>
-      <button id="functions"> Display Functions</button>
+      <button id="functions">More Functions</button>
     </div>
   </div>
   <div id="map"></div>
+  <div id="pop-up-window-more-functions">
+    <ul id="MFnav" class="MFnav">
+      <li id="layer-management">Layer Management</li>
+      <li id="preference">preference Setting for Livability</li>
+      <li id="about">About</li>
+    </ul>
+
+    <div class="MFitem" id="F1"></div>
+    <div class="MFitem" id="F2"></div>
+    <div class="MFitem" id="F3">
+      <p>This project is conducted by Zhong Shuo.<br>
+        Data Source: CSDI Hong Kong, Sentinel-1A by European Space Agency, OpenStreetMap.<br>
+        Reference Tools: OpenRouteService, Vite, OpenLayers, GDAL.<br>
+        Thanks for Dr.Zhu Xiaolin and Dr.Wan Luoma who gave a huge amount of help and mentorship to this project.<br>
+        Thanks for Li Weiguang, Guo Rui, Chen Shubo, Zhang Wenqi, Xun Wenjing, and Zhang Boxun, who helped me a lot during my postgraduate career.</p>
+      
+      </div>
+  </div>
   <script type="module" src="./main.js"></script>
   <script type="module" src="./UI.js"></script>
+  <script type="module" src="./popupWindow.js"></script>
 </body>
 
 </html>

@@ -16,12 +16,22 @@ html, body {
   bottom: 20px; /* 距离顶部的距离 */
   left: 20px; /* 距离右侧的距离 */
   width: 200px; /* 宽度 350px*/
+  right: 220px;
   height: auto;
-  padding: 15px; /* 内边距 */
+  padding: 0 5px; /* 内边距 */
   background-color: rgb(240, 248, 255, 0.75); /* 背景颜色 */
   border: 1px solid #ccc; /* 边框 */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4); /* 阴影 */
   z-index: 1000; /* 确保在其他元素上方 */
+}
+
+#title-legend {
+  text-align: center;
+  font-size: 20px;
+}
+
+#legend-items {
+  padding: 0 10px 10px 10px; /* 设置左右的内边距 */
 }
 
 #nav {
