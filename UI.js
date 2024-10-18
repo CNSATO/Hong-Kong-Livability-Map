@@ -1,6 +1,7 @@
 const btnhide = document.getElementById('closeBtn');
 const nav = document.getElementById("nav");
 const locationZoom = document.getElementById('location-zoom');
+
 nav.style.display = 'block';
 
 btnhide.addEventListener('click', function () {
@@ -85,3 +86,4 @@ window.addEventListener('resize', adjustLocationZoomPosition);
 
 // 页面加载时也执行一次
 window.addEventListener('load', adjustLocationZoomPosition);
+

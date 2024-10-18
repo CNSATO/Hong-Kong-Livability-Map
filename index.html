@@ -19,7 +19,7 @@
   <div id="nav">
     <p id="title-nav">Thanks for visiting Hong Kong Livability Map</p>
     <p>Author: Zhong Shuo, Department of Land Surveying and Geo-informatics, The Hong Kong Polytechnic Univeristy</p>
-    <p>Version: 0.3 (Last Update: Oct 18 2024)</p>
+    <p>Version: 0.4 (Last Update: Oct 19 2024)</p>
     <a href="mailto:shuozhong258@gmail.com">Contact Me</a>
     <div id="button-area">
       <button id="closeBtn">Hide Menu</button>
@@ -30,22 +30,28 @@
   <div id="map"></div>
   <div id="pop-up-window-more-functions">
     <ul id="MFnav" class="MFnav">
-      <li id="layer-management">Layer Management</li>
-      <li id="preference">preference Setting for Livability</li>
-      <li id="about">About</li>
+      <li id="layer-management" class="unvisited">Layer Management</li>
+      <li id="preference" class="unvisited">Preference Setting for Livability</li>
+      <li id="about" class="activated">About</li>
     </ul>
 
-    <div class="MFitem" id="F1"></div>
-    <div class="MFitem" id="F2"></div>
+    <div class="MFitem" id="F1" style="display: none;"><p>1</p></div>
+    <div class="MFitem" id="F2" style="display: none;"><p>2</p></div>
     <div class="MFitem" id="F3">
-      <p>This project is conducted by Zhong Shuo.<br>
-        Data Source: CSDI Hong Kong, Sentinel-1A by European Space Agency, OpenStreetMap.<br>
+      <p>
+        <span style="color: red;">To get back to the map page, please click anywhere outside this dialog.</span><br>
+        Version: 0.4<br>
+        Last Update Date: Oct 19 2024<br>
+        This project is conducted by Zhong Shuo (仲朔). For contacting me or reporting issues, please <a href="mailto:shuozhong258@gmail.com">click here to mail to me</a>.<br>
+        Data Source of the map: <a href="https://portal.csdi.gov.hk/csdi-webpage/">CSDI Portal Hong Kong</a>,<a href="https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-1">Sentinel-1A</a> by European Space Agency, <a href="https://www.openstreetmap.org/">OpenStreetMap</a>.<br>
         Reference Tools: OpenRouteService, Vite, OpenLayers, GDAL.<br>
         Thanks for Dr.Zhu Xiaolin and Dr.Wan Luoma who gave a huge amount of help and mentorship to this project.<br>
         Thanks for Li Weiguang, Guo Rui, Chen Shubo, Zhang Wenqi, Xun Wenjing, and Zhang Boxun, who helped me a lot during my postgraduate career.</p>
+        <p style="font-style: italic;">Per aspera ad astra.</p>
       
       </div>
   </div>
+  <div id="overlay"></div>
   <script type="module" src="./main.js"></script>
   <script type="module" src="./UI.js"></script>
   <script type="module" src="./popupWindow.js"></script>
