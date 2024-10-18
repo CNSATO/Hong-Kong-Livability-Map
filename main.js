@@ -8,8 +8,19 @@ import { transform, toLonLat } from 'ol/proj';
 import ImageSource from 'ol/source/Image';
 import { ImageStatic } from 'ol/source';
 import GeoTIFF from 'ol/source/GeoTIFF.js';
+import Extent from 'ol/interaction/Extent.js';
+import Projection from 'ol/proj/Projection.js';
+import {getCenter} from 'ol/extent.js';
+import ZoomToExtent from 'ol/control/ZoomToExtent.js';
 
-
+const source = new GeoTIFF({
+  sources: [
+    {
+      url: 'resources/test3.tif',
+    },
+  ],
+  
+});
 
 const map = new Map({
   target: 'map',
@@ -18,62 +29,25 @@ const map = new Map({
       source: new OSM()
     }),
     new TileLayer({
-      source: new GeoTIFF({
-        sources: [
-          {
-            url: 'resources/B50K_R200index-geo.tif',
-          },
-        ],
-        projection: 'EPSG:2326'  // 依据地图投影调整
-      }),
+      source: source,
+      // projection: 'EPSG:3857',  // 依据地图投影调整
+      
+      opacity: 0.95,
+      visible: true,
+      zIndex: 997,
+      preload:1,
+      cacheSize:4096,
+
     }),
-    
-
-
-    //   new Image({
-    //     source: new ImageStatic({
-    //         url: 'resources/B50K_R200index-geo.tif',  // 本地栅格图像路径
-    //         imageExtent: [113.814, 22.145, 114.451, 22.565],  // 图像的边界坐标（投影坐标）
-    //         projection: 'EPSG:2326'  // 依据地图投影调整
-    //     })
-    // })
   ],
-view: new View({
-  projection: "EPSG:3857",
-  center: [12711171.903517054, 2556018.552300771],
-  zoom: 11,
-  // maxZoom: 9,
-  // extent: transform([113.7909, 22.1271, 114.524, 22.607], "EPSG:4326", "EPSG:3857")
-  // 22.3,113.7909; 22.1271,114.1376; 22.371,114.524; 22.607,114.140
-}),
+  // view: source.getView(),
+  view: new View({
+    projection: 'EPSG:3857',
+    center: [12711171.903517054, 2556018.552300771],
+    // extent: transform([113.7909, 22.1271, 114.524, 22.607], "EPSG:4326", "EPSG:3857"),
+    zoom: 11,
+  }),
 });
-
-// const source = new GeoTIFF({
-//   sources: [
-//     {
-//       url: 'https://openlayers.org/data/raster/no-overviews.tif',
-//     },
-//   ],
-//   projection: 'EPSG:2326'  // 依据地图投影调整
-// });
-
-// const rasterLayer = new TileLayer({
-//   source: source,
-// })
-
-// // 添加图层到地图
-// map.addLayer(rasterLayer);
-
-// const layer = new TileLayer({
-//   source: new TileWMS({
-//     projection: "EPSG:4326",
-//     url: "https://wms.geo.admin.ch/",
-//     params: {
-//       "LAYERS": "ch.swisstopo.pixelkarte-farbe-pk1000.noscale",
-//       "FORMAT": "image/jpeg",
-//     },
-//   }),
-// });
 
 // map.addLayer(layer);
 
