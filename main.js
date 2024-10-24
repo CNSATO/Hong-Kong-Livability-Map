@@ -36,8 +36,6 @@ const map = new Map({
       visible: true,
       zIndex: 997,
       preload:1,
-      cacheSize:4096,
-
     }),
   ],
   // view: source.getView(),
@@ -71,7 +69,7 @@ map.on('pointermove', function (event) {
   // 将坐标赋值给变量
   var mouseCoordinates = coordinates;
 
-  // 可以在此处执行任何需要的操作，例如在控制台输出坐标
+  // operation
   document.getElementById("location").innerHTML = `${mouseCoordinates[0].toFixed(4)}°E, ${mouseCoordinates[1].toFixed(4)}°N`;
   pointerLocationWindowFade(event)
 });

@@ -32,3 +32,11 @@ for (var i = 0; i < Li.length; i++) {
         items[index].style.display = 'block'
     })
 }
+
+// Preference Setting for Livability's Category Selection
+// For Single People, Elder People and General
+const categoryLi = document.querySelectorAll(".people")
+for (let index = 0; index < array.length; index++) {
+    const element = array[index];
+    
+}

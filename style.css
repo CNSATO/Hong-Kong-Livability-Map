@@ -166,6 +166,8 @@ div#location-zoom {
   /* 边框 */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
   /* 阴影 */
+  overflow:auto;
+  flex-direction: column;
 }
 
 
@@ -190,7 +192,6 @@ div#location-zoom {
   padding: 0;                  /* 去掉内边距 */
   border: 1px solid #767676;      /* 可选：给li增加边框以便更清楚地看见 */
   box-sizing: border-box;       /* 包括边框和内边距在内计算元素的总宽度 */
-  text-align: center;
   /* display: inline-block; */
   /* width: 40%; */
   background-color: #c6c6c6a0;
@@ -209,5 +210,40 @@ div#location-zoom {
 }
 
 #MFnav li.activated {
+  background-color: hsla(0, 0%, 60%, 0.5)
+}
+
+.people-selection-div {
+  flex-direction: column;
+  width: 75%;
+  margin-left: 50%;
+  transform: translate(-50%);
+padding: 0;
+}
+
+.people-selection {
+  justify-content: space-between; /* 在li之间均匀分配空间 */
+  list-style-type: none;
+  /* display: table; */
+  display: flex;
+  padding: 0;
+}
+
+.people-selection li {
+  border: 1px solid #818181;
+  padding: 10px;
+  width: 30%;
+  margin-left: 5%;
+  border-radius: 8px;
+  background: #c6c6c6a0;
+  height: 50px;
+  text-align: center;
+}
+
+.people-selection li:hover {
+  background-color: hsla(0, 0%, 60%, 0.5);
+  /* 悬停时的背景颜色 */
+}
+.people-selection li.activated {
   background-color: hsla(0, 0%, 60%, 0.5)
 }
