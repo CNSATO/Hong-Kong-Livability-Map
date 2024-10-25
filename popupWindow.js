@@ -20,7 +20,7 @@ Btn.addEventListener("click", (e) => {
 
 for (var i = 0; i < Li.length; i++) {
     Li[i].setAttribute('index', i)
-    Li[i].addEventListener("click", (e)=> {
+    Li[i].addEventListener("click", (e) => {
         for (var i = 0; i < Li.length; i++) {
             Li[i].className = 'unvisited'
         }
@@ -35,8 +35,29 @@ for (var i = 0; i < Li.length; i++) {
 
 // Preference Setting for Livability's Category Selection
 // For Single People, Elder People and General
+// some prepared setting: Yu4She4. If you would like to edit the layer display style, please go to the Layer Management module.
 const categoryLi = document.querySelectorAll(".people")
-for (let index = 0; index < array.length; index++) {
-    const element = array[index];
-    
+for (let index = 0; index < categoryLi.length; index++) {
+    categoryLi[index].setAttribute('index', i)
+    categoryLi[index].addEventListener("click", (e) => {
+        // to-do
+        // Which is clicked, Do:
+        // 1. activated this.
+        // 2. reset and change the layer displaying.
+        // 3. reset and change the legend.
+        // 4. pop-up tips on the top of page: the preference is set to older-people.
+
+        for (let j = 0; j < categoryLi.length; j++) {
+            
+            if (!categoryLi[j].classList.contains('unvisited')) {
+                categoryLi[j].className += ' unvisited'
+            }
+            e.target.classList.remove("unvisited")
+            if (categoryLi[j].classList.contains('activated')) {
+                categoryLi[j].classList.remove("activated")
+            }
+        }
+        e.target.className += ' activated'
+    })
+
 }
